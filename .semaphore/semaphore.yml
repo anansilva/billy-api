@@ -58,7 +58,7 @@ blocks:
           - sem-service start postgres 11.2
           - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
-          - bundle exec rake db:setup
+          - bundle exec rake db:test:prepare
 
       jobs:
         - name: RSpec - model tests
