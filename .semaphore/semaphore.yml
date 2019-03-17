@@ -54,6 +54,8 @@ blocks:
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
           - sem-service start postgres 11.2
           - sem-version ruby 2.6.0
+          - sudo apt-get update && sudo apt-get install -y libpq-dev
+          - gem install pg
           - bundle install --deployment --path vendor/bundle
           - bundle exec rake db:setup
 
