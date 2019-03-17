@@ -41,7 +41,7 @@ blocks:
             - bundle install --deployment --path vendor/bundle
             - bundle exec rubocop
 
-  - name: Unit tests
+  - name: Unit/Functional tests
     task:
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
