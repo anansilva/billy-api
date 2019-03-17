@@ -46,6 +46,9 @@ blocks:
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
       # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      env_vars:
+        - name: RAILS_ENV
+          value: test
       prologue:
         commands:
           - checkout
@@ -54,8 +57,6 @@ blocks:
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
           - sem-service start postgres 11.2
           - sem-version ruby 2.6.0
-          - sudo apt-get update && sudo apt-get install -y libpq-dev
-          - gem install pg
           - bundle install --deployment --path vendor/bundle
           - bundle exec rake db:setup
 
