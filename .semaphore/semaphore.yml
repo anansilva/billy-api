@@ -40,8 +40,16 @@ blocks:
             - sem-version ruby 2.6.0
             - bundle install --deployment --path vendor/bundle
             - bundle exec rubocop
+      jobs:
+        - name: check security
+          commands:
+            - checkout
+            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+            - sem-version ruby 2.6.0
+            - bundle install --deployment --path vendor/bundle
+            - bundle exec brakeman
 
-  - name: Unit/Functional tests
+  - name: Tests
     task:
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.

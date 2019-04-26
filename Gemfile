@@ -29,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'brakeman'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.65.0', require: false
   gem 'spring'
