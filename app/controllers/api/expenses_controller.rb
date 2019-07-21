@@ -1,4 +1,4 @@
-class ExpensesController < ApplicationController
+class Api::ExpensesController < ApplicationController
   before_action :find_expense, only: %i[show update destroy]
 
   def index
