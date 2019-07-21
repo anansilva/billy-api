@@ -21,7 +21,7 @@ gem 'puma', '~> 3.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'pry-byebug', platforms: %i[mri mingw x64_mingw]
