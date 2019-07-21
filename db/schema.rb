@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_316_151_436) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+ActiveRecord::Schema.define(version: 20190721170324) do
 
-  create_table 'expenses', force: :cascade do |t|
-    t.float 'amount'
-    t.datetime 'expense_date'
-    t.string 'description'
-    t.integer 'category'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "expenses", force: :cascade do |t|
+    t.float "amount"
+    t.datetime "expense_date"
+    t.string "description"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end
